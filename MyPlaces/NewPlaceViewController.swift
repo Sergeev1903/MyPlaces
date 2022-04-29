@@ -31,6 +31,7 @@ class NewPlaceViewController: UITableViewController {
         setupEditScreen()
         
     }
+    
 
     // MARK: Table view delegate
     
