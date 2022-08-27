@@ -9,13 +9,8 @@ import UIKit
 
 class PlacesTableViewController: UITableViewController {
     
-    let placesNames = ["Ischia, Italy", "Maldives", "Bali, Indonesia",
-    "Mílos, Greece", "Fiji Islands", "Galápagos Islands, Ecuador", "Phuket, Thailand", "Dominica", "Boracay, Philippines", "Cape Breton Island, Nova Scotia", "Palawan, Philippines", "Páros, Greece", "Azores, Portugal",
-    "Phu Quoc, Vietnam", "Moorea, French Polynesia", "Cebu, Philippines",
-    "Ibiza, Spain", "St. Vincent and the Grenadines", "Madeira, Portugal",
-    "Maui, Hawaii", "Anguilla", "Crete, Greece", "Mackinac Island, Michigan",
-    "Island of Hawaii", "Kiawah Island, South Carolina"]
-
+    let places = Place.getPlace()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +30,7 @@ class PlacesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return placesNames.count
+        return places.count
     }
 
     
@@ -43,27 +38,25 @@ class PlacesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PlacesTableViewCell
 
 
-        let place = placesNames[indexPath.row]
-    
-        cell.nameOfPlace.text = place
-        
-        cell.imageOfPlace.image = UIImage(named: place)
-        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
-        cell.imageOfPlace.clipsToBounds = true
+        let place = places[indexPath.row]
         
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 100 , bottom: 0, right: 16)
     
+        cell.imageOfPlace.image = UIImage(named: place.image)
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
+        cell.imageOfPlace.clipsToBounds = true
+        
+        cell.nameOfPlace.text = "\(indexPath.row + 1). \(place.name)"
+        cell.locationOfPlace.text = place.location
+        cell.typeOfPlace.text = place.type
+        
         return cell
     }
     
     
     // MARK: - Table view delegate
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-       return 100
-    }
-    
+    //////////////////////////////
 
     /*
     // Override to support conditional editing of the table view.
