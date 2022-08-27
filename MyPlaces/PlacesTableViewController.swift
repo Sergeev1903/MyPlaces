@@ -40,7 +40,7 @@ class PlacesTableViewController: UITableViewController {
 
         let place = places[indexPath.row]
         
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 100 , bottom: 0, right: 16)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 114 , bottom: 0, right: 16)
     
         cell.imageOfPlace.image = UIImage(named: place.image)
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
@@ -56,8 +56,6 @@ class PlacesTableViewController: UITableViewController {
     
     // MARK: - Table view delegate
     
-    //////////////////////////////
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -102,6 +100,10 @@ class PlacesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func cancelButton(_ segue: UIStoryboardSegue) {
+        dismiss(animated: true)
+    }
 
 }
 
