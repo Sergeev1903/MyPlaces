@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "15. Moorea, French Polynesia.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "15. Moorea, French Polynesia-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "15. Moorea, French Polynesia-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
