@@ -40,7 +40,7 @@ class PlacesTableViewController: UITableViewController {
 
         let place = places[indexPath.row]
         
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 114 , bottom: 0, right: 16)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 114 , bottom: 0, right: 14)
     
         cell.imageOfPlace.image = UIImage(named: place.image)
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
