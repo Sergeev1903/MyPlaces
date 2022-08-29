@@ -9,7 +9,7 @@ import UIKit
 
 class PlacesTableViewController: UITableViewController {
     
-    let places = Place.getPlace()
+    var places = Place.getPlace()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +41,14 @@ class PlacesTableViewController: UITableViewController {
         let place = places[indexPath.row]
         
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 114 , bottom: 0, right: 14)
-    
-        cell.imageOfPlace.image = UIImage(named: place.image)
+        
+        
+        if place.image == nil {
+            cell.imageOfPlace.image = UIImage(named: place.testImage!)
+        } else {
+            cell.imageOfPlace.image = place.image
+        }
+        
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
         cell.imageOfPlace.clipsToBounds = true
         
@@ -101,8 +107,12 @@ class PlacesTableViewController: UITableViewController {
     }
     */
     
-    @IBAction func cancelButton(_ segue: UIStoryboardSegue) {
-        dismiss(animated: true)
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        
+        guard let newPlaceVC = segue.source as? NewPlaceTableViewController else {return}
+        newPlaceVC.saveNewPlace()
+        places.append(newPlaceVC.newPlace!)
+        tableView.reloadData()
     }
 
 }

@@ -5,13 +5,14 @@
 //  Created by Артем Сергеев on 27.08.2022.
 //
 
-import Foundation
+import UIKit
 
 struct Place {
     let name: String
-    let location: String
-    let type: String
-    let image: String
+    let location: String?
+    let type: String?
+    let image: UIImage?
+    let testImage: String?
     
    static let placesNames = ["Ischia, Italy", "Maldives", "Bali, Indonesia",
     "Mílos, Greece", "Fiji Islands", "Galápagos Islands, Ecuador", "Phuket, Thailand", "Dominica", "Boracay, Philippines", "Cape Breton Island, Nova Scotia", "Palawan, Philippines", "Páros, Greece", "Azores, Portugal",
@@ -25,7 +26,7 @@ struct Place {
         var places = [Place]()
         
         for place in placesNames {
-            places.append(Place(name: place, location: place, type: "#Island", image: place))
+            places.append(Place(name: place, location: place, type: "#Island", image: nil, testImage: place))
             
         }
         

@@ -29,7 +29,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="n7K-Go-nwb">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
-                                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -156,13 +156,21 @@
                     <navigationItem key="navigationItem" title="New Place" id="aNe-Ig-ZG9">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UTW-fP-9K8">
                             <connections>
-                                <segue destination="d3S-yM-dnW" kind="unwind" unwindAction="cancelButton:" id="uRa-gl-ast"/>
+                                <action selector="cancelAction:" destination="hcR-lf-Wi2" id="KRs-YN-tpG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="L9W-B6-frV"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="L9W-B6-frV">
+                            <connections>
+                                <segue destination="d3S-yM-dnW" kind="unwind" unwindAction="unwindSegue:" id="mgy-bP-3u3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageOfPlace" destination="n7K-Go-nwb" id="KJo-tC-Euv"/>
+                        <outlet property="placeImage" destination="n7K-Go-nwb" id="KJo-tC-Euv"/>
+                        <outlet property="placeLocation" destination="PKK-7d-iTy" id="IfA-Yp-HM6"/>
+                        <outlet property="placeName" destination="C22-GK-YAi" id="PC5-A3-Ygv"/>
+                        <outlet property="placeType" destination="F19-nV-Zyb" id="qUU-S4-Zgh"/>
+                        <outlet property="saveButton" destination="L9W-B6-frV" id="Fiw-VP-aYk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rz1-pE-CwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -191,12 +199,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image_placeholder" width="1253" height="992"/>
+        <image name="image_placeholder" width="626.5" height="496"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
