@@ -8,6 +8,8 @@
 import RealmSwift
 
 class Place: Object {
+    
+    //FIXME: update properties to @Persisted
     @objc dynamic var name: String = " "
     @objc dynamic var location: String?
     @objc dynamic var type: String?
