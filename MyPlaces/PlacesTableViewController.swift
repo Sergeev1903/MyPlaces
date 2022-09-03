@@ -9,7 +9,7 @@ import UIKit
 
 class PlacesTableViewController: UITableViewController {
     
-    var places = Place.getPlace()
+//    var places = Place.savePlaces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,37 +28,37 @@ class PlacesTableViewController: UITableViewController {
 //        return 1
 //    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return places.count
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return places.count
+//    }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PlacesTableViewCell
-
-
-        let place = places[indexPath.row]
-        
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 114 , bottom: 0, right: 14)
-        
-        
-        if place.image == nil {
-            cell.imageOfPlace.image = UIImage(named: place.testImage!)
-        } else {
-            cell.imageOfPlace.image = place.image
-        }
-        
-        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
-        cell.imageOfPlace.clipsToBounds = true
-        
-        cell.nameOfPlace.text = "\(indexPath.row + 1). \(place.name)"
-        cell.locationOfPlace.text = place.location
-        cell.typeOfPlace.text = place.type
-        
-        return cell
-    }
-    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PlacesTableViewCell
+//
+//
+//        let place = places[indexPath.row]
+//        
+//        tableView.separatorInset = UIEdgeInsets(top: 0, left: 114 , bottom: 0, right: 14)
+//        
+//        
+//        if place.image == nil {
+//            cell.imageOfPlace.image = UIImage(named: place.testImage!)
+//        } else {
+//            cell.imageOfPlace.image = place.image
+//        }
+//        
+//        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
+//        cell.imageOfPlace.clipsToBounds = true
+//        
+//        cell.nameOfPlace.text = "\(indexPath.row + 1). \(place.name)"
+//        cell.locationOfPlace.text = place.location
+//        cell.typeOfPlace.text = place.type
+//        
+//        return cell
+//    }
+//    
     
     // MARK: - Table view delegate
     
@@ -111,7 +111,7 @@ class PlacesTableViewController: UITableViewController {
         
         guard let newPlaceVC = segue.source as? NewPlaceTableViewController else {return}
         newPlaceVC.saveNewPlace()
-        places.append(newPlaceVC.newPlace!)
+//        places.append(newPlaceVC.newPlace!)
         tableView.reloadData()
     }
 

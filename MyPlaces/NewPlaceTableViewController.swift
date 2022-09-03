@@ -9,7 +9,7 @@ import UIKit
 
 class NewPlaceTableViewController: UITableViewController {
     
-    var newPlace: Place?
+    var newPlace = Place()
     var imageIsChanged = false
     
     @IBOutlet var saveButton: UIBarButtonItem!
@@ -22,16 +22,21 @@ class NewPlaceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        DispatchQueue.main.async {
+            self.newPlace.savePlaces()
+        }
+        
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         // if see line link on the table, this instruction change empty cell on base view
-//        tableView.tableFooterView = UIView()
-
+        tableView.tableFooterView = UIView()
+        
     }
     
     
-//MARK: - Table view delegate
+    //MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             
@@ -45,15 +50,15 @@ class NewPlaceTableViewController: UITableViewController {
                 self.chooseImagePicker(source: .camera)
             }
             camera.setValue(cameraIcon, forKey: "image")
-//            camera.setValue( CATextLayerAlignmentMode.left,
-//                             forKey: "titleTextAlignment")
+            //            camera.setValue( CATextLayerAlignmentMode.left,
+            //                             forKey: "titleTextAlignment")
             
             let photo = UIAlertAction(title: "Photo", style: .default) { _ in
                 self.chooseImagePicker(source: .photoLibrary)
             }
             photo.setValue(photoIcon, forKey: "image")
-//            photo.setValue(CATextLayerAlignmentMode.left,
-//                           forKey: "titleTextAlignment")
+            //            photo.setValue(CATextLayerAlignmentMode.left,
+            //                           forKey: "titleTextAlignment")
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
             
@@ -78,11 +83,11 @@ class NewPlaceTableViewController: UITableViewController {
             image = #imageLiteral(resourceName: "appstore")
         }
         
-        newPlace = Place(name: placeName.text ?? "Empty",
-                         location: placeLocation.text,
-                         type: placeType.text,
-                         image: image,
-                         testImage: nil)
+//        newPlace = Place(name: placeName.text ?? "Empty",
+//                         location: placeLocation.text,
+//                         type: placeType.text,
+//                         image: image,
+//                         testImage: nil)
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -93,7 +98,7 @@ class NewPlaceTableViewController: UITableViewController {
 
 //MARK: - Text field delegate
 extension NewPlaceTableViewController: UITextFieldDelegate {
-   
+    
     // Hide keyboard when tapped Done button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
