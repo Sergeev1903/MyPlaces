@@ -8,27 +8,35 @@
 import UIKit
 import RealmSwift
 
-class PlacesTableViewController: UITableViewController {
+class PlacesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var reversedSortingButton: UIBarButtonItem!
     
     var places: Results<Place>!
+    
+    var ascendingSorting = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    
         // Data base request
         places = realm.objects(Place.self)
     }
     
     // MARK: - Table view data source
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return places.isEmpty ? 0 : places.count
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PlacesTableViewCell
         
         
@@ -52,7 +60,7 @@ class PlacesTableViewController: UITableViewController {
     
     // Delete place from data base & table view
     // FIXME: Deprecated
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let place = places[indexPath.row]
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { _, _ in
@@ -79,6 +87,46 @@ class PlacesTableViewController: UITableViewController {
         
         guard let newPlaceVC = segue.source as? NewPlaceTableViewController else {return}
         newPlaceVC.savePlace()
+        tableView.reloadData()
+    }
+    
+    
+    // Sorting
+    @IBAction func sortSelection(_ sender: UISegmentedControl) {
+        
+//        if sender.selectedSegmentIndex == 0 {
+//            places = places.sorted(byKeyPath: "date")
+//        } else {
+//            places = places.sorted(byKeyPath: "name")
+//        }
+//
+//        tableView.reloadData()
+        
+        sorting()
+    }
+    
+    
+    @IBAction func reversedSorting(_ sender: UIBarButtonItem) {
+        
+        ascendingSorting.toggle()
+        
+        if ascendingSorting {
+            reversedSortingButton.image = UIImage(systemName: "arrow.down")
+        } else {
+            reversedSortingButton.image = UIImage(systemName: "arrow.up")
+        }
+        
+        sorting()
+    }
+    
+    private func sorting() {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            places = places.sorted(byKeyPath: "date", ascending: ascendingSorting)
+        } else {
+            places = places.sorted(byKeyPath: "name", ascending: ascendingSorting)
+        }
+        
         tableView.reloadData()
     }
     
