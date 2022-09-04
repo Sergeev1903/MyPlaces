@@ -9,6 +9,9 @@ import UIKit
 
 class NewPlaceTableViewController: UITableViewController {
     
+    // Pass from placeTable to newPlaceTable
+    var currentPlace: Place?
+    
     var imageIsChanged = false
     
     @IBOutlet var saveButton: UIBarButtonItem!
@@ -20,12 +23,14 @@ class NewPlaceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         // if see line link on the table, this instruction change empty cell on base view
         tableView.tableFooterView = UIView()
+        
+        setUpEditScreen() // must call after saveButton.isEnabled = false
         
     }
     
@@ -68,7 +73,7 @@ class NewPlaceTableViewController: UITableViewController {
     }
     
     // Save new place to data base
-    func saveNewPlace() {
+    func savePlace() {
         
         var image: UIImage?
         
@@ -79,14 +84,59 @@ class NewPlaceTableViewController: UITableViewController {
         }
         
         let imageData = image?.pngData()
-
+        
         let newPlace = Place(name: placeName.text!,
                              location: placeLocation.text,
                              type: placeType.text,
                              imageData: imageData)
         
-        StorageManager.saveObject(newPlace)
+        // Choose add new place or edit place
+        if currentPlace != nil {
+            try! realm.write({
+                currentPlace?.imageData = newPlace.imageData
+                currentPlace?.name = newPlace.name
+                currentPlace?.location = newPlace.location
+                currentPlace?.type = newPlace.type
+            })
+        } else {
+            StorageManager.saveObject(newPlace)
+        }
+    }
     
+    // Set up edit screen
+    private func setUpEditScreen() {
+        
+        if currentPlace != nil {
+            
+            setUpNavigationBar()
+            imageIsChanged = true
+            
+            guard let data = currentPlace?.imageData,
+                  let image = UIImage(data: data) else { return }
+            
+            placeImage.image = image
+            placeImage.contentMode = .scaleAspectFill
+            
+            placeName.text = currentPlace?.name
+            placeLocation.text = currentPlace?.location
+            placeType.text = currentPlace?.type
+        }
+    }
+    
+    
+    // Set up navigation when call edit screen
+    private func setUpNavigationBar() {
+        
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: " ",
+                                                        style: .plain,
+                                                        target: nil,
+                                                        action: nil)
+        }
+        
+        navigationItem.leftBarButtonItem = nil
+        title = currentPlace?.name
+        saveButton.isEnabled = true
     }
     
     @IBAction func cancelAction(_ sender: Any) {
