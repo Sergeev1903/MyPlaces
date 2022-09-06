@@ -10,7 +10,7 @@ import UIKit
 class NewPlaceTableViewController: UITableViewController {
     
     // Pass from placeTable to newPlaceTable
-    var currentPlace: Place?
+    var currentPlace: Place!
     
     var imageIsChanged = false
     
@@ -21,6 +21,8 @@ class NewPlaceTableViewController: UITableViewController {
     @IBOutlet var placeLocation: UITextField!
     @IBOutlet var placeType: UITextField!
     
+    @IBOutlet var raitingControl: RatingControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +30,11 @@ class NewPlaceTableViewController: UITableViewController {
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         // if see line link on the table, this instruction change empty cell on base view
-        tableView.tableFooterView = UIView()
+        // + delete line link on the last row (for us - raitings)
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0,
+                                                         y: 0,
+                                                         width: tableView.frame.size.height,
+                                                         height: 1))
         
         setUpEditScreen() // must call after saveButton.isEnabled = false
         
@@ -52,17 +58,17 @@ class NewPlaceTableViewController: UITableViewController {
             //            camera.setValue( CATextLayerAlignmentMode.left,
             //                             forKey: "titleTextAlignment")
             
-            let photo = UIAlertAction(title: "Photo", style: .default) { _ in
+            let album = UIAlertAction(title: "Album", style: .default) { _ in
                 self.chooseImagePicker(source: .photoLibrary)
             }
-            photo.setValue(photoIcon, forKey: "image")
+            album.setValue(photoIcon, forKey: "image")
             //            photo.setValue(CATextLayerAlignmentMode.left,
             //                           forKey: "titleTextAlignment")
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
             
             actionSheet.addAction(camera)
-            actionSheet.addAction(photo)
+            actionSheet.addAction(album)
             actionSheet.addAction(cancel)
             
             present(actionSheet, animated: true)
@@ -88,7 +94,8 @@ class NewPlaceTableViewController: UITableViewController {
         let newPlace = Place(name: placeName.text!,
                              location: placeLocation.text,
                              type: placeType.text,
-                             imageData: imageData)
+                             imageData: imageData,
+                             raiting: Double(raitingControl.raiting))
         
         // Choose add new place or edit place
         if currentPlace != nil {
@@ -97,6 +104,7 @@ class NewPlaceTableViewController: UITableViewController {
                 currentPlace?.name = newPlace.name
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
+                currentPlace?.raiting = newPlace.raiting
             })
         } else {
             StorageManager.saveObject(newPlace)
@@ -120,6 +128,7 @@ class NewPlaceTableViewController: UITableViewController {
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
+            raitingControl.raiting = Int(currentPlace.raiting)
         }
     }
     
