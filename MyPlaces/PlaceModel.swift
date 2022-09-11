@@ -17,7 +17,6 @@ class Place: Object {
     @objc dynamic var date = Date()
     @objc dynamic var raiting = 0.0 // Double for precision
     
-    
     convenience init(name: String,
                      location: String?,
                      type: String?,

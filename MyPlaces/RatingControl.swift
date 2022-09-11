@@ -48,12 +48,12 @@ import UIKit
         guard let index = raitingButtons.firstIndex(of: button) else { return }
         
         // Calculate the raiting of the selected button
-        let selectedRiting = index + 1
+        let selectedRating = index + 1
         
-        if selectedRiting == raiting {
+        if selectedRating == raiting {
             raiting = 0
         } else {
-            raiting = selectedRiting
+            raiting = selectedRating
         }
     }
     
@@ -73,7 +73,7 @@ import UIKit
         let emptyStar = UIImage(named: "emptyStar",
                                 in: bundle,
                                 compatibleWith: self.traitCollection)
-        let filledStar = UIImage(named: "filledStar",
+        let filledStar = UIImage(named: "highlightedStar",
                                  in: bundle,
                                  compatibleWith: self.traitCollection)
         let highlightedStar = UIImage(named: "highlightedStar",

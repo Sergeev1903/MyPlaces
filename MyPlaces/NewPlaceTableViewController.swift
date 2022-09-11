@@ -23,6 +23,7 @@ class NewPlaceTableViewController: UITableViewController {
     
     @IBOutlet var raitingControl: RatingControl!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

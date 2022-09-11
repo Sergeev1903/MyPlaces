@@ -79,6 +79,8 @@ class PlacesTableViewController: UIViewController, UITableViewDataSource, UITabl
         cell.locationOfPlace.text = place.location
         cell.typeOfPlace.text = place.type
         
+        cell.raitingOfPlace.raiting = Int(place.raiting)
+      
         return cell
     }
     
@@ -108,14 +110,14 @@ class PlacesTableViewController: UIViewController, UITableViewDataSource, UITabl
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             
             let place: Place
-        
+            
             // When filtering edit value not equal with search value
             if isFiltering {
                 place = filtredPlaces[indexPath.row]
             } else {
                 place = places[indexPath.row]
             }
-          
+            
             let newPlaceVC = segue.destination as! NewPlaceTableViewController
             newPlaceVC.currentPlace = place
         }

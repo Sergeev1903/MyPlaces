@@ -8,11 +8,11 @@
 import UIKit
 
 class PlacesTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var imageOfPlace: UIImageView!
     @IBOutlet var nameOfPlace: UILabel!
     @IBOutlet var locationOfPlace: UILabel!
     @IBOutlet var typeOfPlace: UILabel!
     
-
+    @IBOutlet var raitingOfPlace: RatingControl!
 }
