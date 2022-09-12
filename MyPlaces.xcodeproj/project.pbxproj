@@ -20,23 +20,8 @@
 		1DAC407228C2917E00CA80DE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC407128C2917E00CA80DE /* StorageManager.swift */; };
 		1DF8CB6128CDE4210095D510 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8CB6028CDE4210095D510 /* MapViewController.swift */; };
 		1DF8CB6628CDF54A0095D510 /* Pods_MyPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8567325DB5A992D393BF076C /* Pods_MyPlaces.framework */; };
-		1DF8CB6728CDF54A0095D510 /* Pods_MyPlaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8567325DB5A992D393BF076C /* Pods_MyPlaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DF8CB6828CDF5540095D510 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF8CB6228CDF4C20095D510 /* MapKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		1D63813C28CA726300C756AB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				1DF8CB6728CDF54A0095D510 /* Pods_MyPlaces.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05F92B8291AF40B223DE521E /* Pods-MyPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlaces.release.xcconfig"; path = "Target Support Files/Pods-MyPlaces/Pods-MyPlaces.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,7 +125,6 @@
 				1D022F4A28B8BAFE00688E53 /* Frameworks */,
 				1D022F4B28B8BAFE00688E53 /* Resources */,
 				5387AF0C428A99C7C4B22C8A /* [CP] Embed Pods Frameworks */,
-				1D63813C28CA726300C756AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
