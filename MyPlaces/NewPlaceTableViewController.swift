@@ -27,15 +27,19 @@ class NewPlaceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveButton.isEnabled = false
-        placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        
         // if see line link on the table, this instruction change empty cell on base view
         // + delete line link on the last row (for us - raitings)
+        
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0,
+                                                         y: 0,
+                                                         width: tableView.frame.size.width,
+                                                         height: 1))
         tableView.tableFooterView = UIView(frame: CGRect(x: 0,
                                                          y: 0,
-                                                         width: tableView.frame.size.height,
+                                                         width: tableView.frame.size.width,
                                                          height: 1))
+        saveButton.isEnabled = false
+        placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         setUpEditScreen() // must call after saveButton.isEnabled = false
         
