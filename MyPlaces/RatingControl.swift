@@ -13,7 +13,7 @@ import UIKit
     
     private var raitingButtons = [UIButton]()
     
-    @IBInspectable var starSize: CGSize = CGSize(width: 44, height: 44) {
+    @IBInspectable var starSize: CGSize = CGSize(width: 30, height: 30) {
         didSet {
             setUpButtons()
         }

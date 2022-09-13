@@ -9,8 +9,15 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
+@objc protocol MapViewControllerDelegate {
+    
+   @objc optional func getAddress(_ address: String?) // Not required method - its for example
+}
+
 class MapViewController: UIViewController {
     
+    var mapViewControllerDelegate: MapViewControllerDelegate?
     var place = Place()
     let annotationIdentifier = "annotationIdentifier"
     
@@ -21,7 +28,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var mapMarker: UIImageView!
-    @IBOutlet var currentAdressLabel: UILabel!
+    @IBOutlet var currentAddressLabel: UILabel!
     @IBOutlet var doneButton: UIButton!
     
     
@@ -29,11 +36,12 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
+        currentAddressLabel.text = ""
         setUpMapView()
         checkLocationServices()
         
     }
-  
+    
     @IBAction func centerViewUserLocation() {
         
         showUserLocation()
@@ -45,8 +53,8 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed() {
-        
-        
+        mapViewControllerDelegate?.getAddress?(currentAddressLabel.text)
+        dismiss(animated: true)
     }
     
     
@@ -54,7 +62,7 @@ class MapViewController: UIViewController {
         
         if incomeSegueIdentifier == "showPlace" {
             mapMarker.isHidden = true
-            currentAdressLabel.isHidden = true
+            currentAddressLabel.isHidden = true
             doneButton.isHidden = true
             setUpPlacemark()
         }
@@ -118,7 +126,7 @@ class MapViewController: UIViewController {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
             
-            if incomeSegueIdentifier == "getAdress" {
+            if incomeSegueIdentifier == "getAddress" {
                 showUserLocation()
             }
             
@@ -159,6 +167,14 @@ class MapViewController: UIViewController {
         }
     }
     
+    private func getCenterLocation(for mapView: MKMapView) -> CLLocation {
+        
+        let latitude = mapView.centerCoordinate.latitude
+        let longitude = mapView.centerCoordinate.longitude
+        
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
     private func showAlert(title: String, message: String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -196,6 +212,43 @@ extension MapViewController: MKMapViewDelegate {
         annotationView?.rightCalloutAccessoryView = imageView
         
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
+        let center = getCenterLocation(for: mapView)
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(center) { (placeMarks, error) in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let placeMarks = placeMarks else { return }
+            
+            let placeMark = placeMarks.first
+            
+            let streetName = placeMark?.thoroughfare
+            let buildNumber = placeMark?.subThoroughfare
+            
+            DispatchQueue.main.async {
+                
+                if streetName != nil && buildNumber != nil {
+                    
+                    self.currentAddressLabel.text = "\(streetName!), \(buildNumber!)"
+                } else if streetName != nil {
+                    
+                    self.currentAddressLabel.text = "\(streetName!)"
+                } else {
+                    
+                    self.currentAddressLabel.text = ""
+                }
+                
+                
+            }
+        }
     }
 }
 
