@@ -40,6 +40,9 @@ class MapViewController: UIViewController {
         setUpMapView()
         checkLocationServices()
         
+        currentAddressLabel.layer.cornerRadius = 10
+        doneButton.layer.cornerRadius = 10
+        
     }
     
     @IBAction func centerViewUserLocation() {

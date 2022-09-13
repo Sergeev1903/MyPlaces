@@ -424,7 +424,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current adress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T6i-yl-Ksc">
-                                <rect key="frame" x="16" y="144" width="382" height="36"/>
+                                <rect key="frame" x="20" y="144" width="374" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="0.30497206125827814" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -441,11 +442,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ak-lM-98v">
-                                <rect key="frame" x="160" y="772" width="94" height="50"/>
+                                <rect key="frame" x="147" y="762" width="120" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="0.29982408940397354" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="CvW-pB-ipu"/>
+                                    <constraint firstAttribute="height" constant="60" id="dWE-am-rYr"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Done">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Done">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="30"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="doneButtonPressed" destination="WN9-SV-9wF" eventType="touchUpInside" id="SV4-8C-CqA"/>
@@ -457,7 +470,7 @@
                         <constraints>
                             <constraint firstItem="jiY-Td-5gs" firstAttribute="top" secondItem="830-92-Uzx" secondAttribute="top" id="3xn-bU-WrL"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="trailing" secondItem="xlC-JU-y7V" secondAttribute="trailing" constant="40" id="A3j-Zs-HnT"/>
-                            <constraint firstItem="T6i-yl-Ksc" firstAttribute="leading" secondItem="iB2-cM-xtV" secondAttribute="leading" constant="16" id="CaA-g3-aJ8"/>
+                            <constraint firstItem="T6i-yl-Ksc" firstAttribute="leading" secondItem="iB2-cM-xtV" secondAttribute="leading" constant="20" id="CaA-g3-aJ8"/>
                             <constraint firstItem="jiY-Td-5gs" firstAttribute="leading" secondItem="iB2-cM-xtV" secondAttribute="leading" id="DRe-cp-Hbf"/>
                             <constraint firstAttribute="bottom" secondItem="jiY-Td-5gs" secondAttribute="bottom" id="HK8-kV-isi"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="trailing" secondItem="FB4-Xs-RxL" secondAttribute="trailing" constant="40" id="JFa-BG-PE0"/>
@@ -468,7 +481,7 @@
                             <constraint firstItem="5yX-LF-fFa" firstAttribute="centerY" secondItem="830-92-Uzx" secondAttribute="centerY" constant="-20" id="cc4-iV-wZE"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="bottom" secondItem="xlC-JU-y7V" secondAttribute="bottom" constant="120" id="hhy-ZO-zv7"/>
                             <constraint firstItem="jiY-Td-5gs" firstAttribute="trailing" secondItem="iB2-cM-xtV" secondAttribute="trailing" id="imb-8Z-f80"/>
-                            <constraint firstItem="iB2-cM-xtV" firstAttribute="trailing" secondItem="T6i-yl-Ksc" secondAttribute="trailing" constant="16" id="iq6-wA-7NL"/>
+                            <constraint firstItem="iB2-cM-xtV" firstAttribute="trailing" secondItem="T6i-yl-Ksc" secondAttribute="trailing" constant="20" id="iq6-wA-7NL"/>
                             <constraint firstItem="0Ak-lM-98v" firstAttribute="centerX" secondItem="830-92-Uzx" secondAttribute="centerX" id="sbC-LL-pyb"/>
                         </constraints>
                     </view>
@@ -481,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pii-jN-KNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1997.5999999999999" y="13.300492610837439"/>
+            <point key="canvasLocation" x="1997.1014492753625" y="12.723214285714285"/>
         </scene>
     </scenes>
     <designables>
