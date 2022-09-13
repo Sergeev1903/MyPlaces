@@ -12,38 +12,52 @@ import CoreLocation
 class MapViewController: UIViewController {
     
     var place = Place()
-    
     let annotationIdentifier = "annotationIdentifier"
     
     // Location manager
     let locationManager = CLLocationManager()
-    
     let regionInMeters = 10_000.00
+    var incomeSegueIdentifier = ""
     
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var mapMarker: UIImageView!
+    @IBOutlet var currentAdressLabel: UILabel!
+    @IBOutlet var doneButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
-        setUpPlacemark()
+        setUpMapView()
         checkLocationServices()
         
     }
   
     @IBAction func centerViewUserLocation() {
         
-        if let location = locationManager.location?.coordinate {
-            let region = MKCoordinateRegion(center: location,
-                                            latitudinalMeters: regionInMeters,
-                                            longitudinalMeters: regionInMeters)
-            mapView.setRegion(region, animated: true)
-        }
+        showUserLocation()
     }
     
     @IBAction func cancelMap() {
         
         dismiss(animated: true)
+    }
+    
+    @IBAction func doneButtonPressed() {
+        
+        
+    }
+    
+    
+    private func setUpMapView() {
+        
+        if incomeSegueIdentifier == "showPlace" {
+            mapMarker.isHidden = true
+            currentAdressLabel.isHidden = true
+            doneButton.isHidden = true
+            setUpPlacemark()
+        }
     }
     
     private func setUpPlacemark() {
@@ -103,6 +117,11 @@ class MapViewController: UIViewController {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
+            
+            if incomeSegueIdentifier == "getAdress" {
+                showUserLocation()
+            }
+            
             break
         case .denied:
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -127,6 +146,16 @@ class MapViewController: UIViewController {
             break
         @unknown default:
             print("New case is available")
+        }
+    }
+    
+    private func showUserLocation() {
+        
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion(center: location,
+                                            latitudinalMeters: regionInMeters,
+                                            longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
         }
     }
     
