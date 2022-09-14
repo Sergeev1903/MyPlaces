@@ -425,7 +425,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current adress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T6i-yl-Ksc">
                                 <rect key="frame" x="20" y="144" width="374" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -448,18 +448,10 @@
                                     <constraint firstAttribute="width" constant="120" id="CvW-pB-ipu"/>
                                     <constraint firstAttribute="height" constant="40" id="dWE-am-rYr"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Done">
-                                            <attributes>
-                                                <font key="NSFont" metaFont="system" size="30"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonPressed" destination="WN9-SV-9wF" eventType="touchUpInside" id="SV4-8C-CqA"/>
                                 </connections>
@@ -477,6 +469,23 @@
                                     <action selector="goButtonPressed" destination="WN9-SV-9wF" eventType="touchUpInside" id="RxV-MX-dPU"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9vq-rK-5kt">
+                                <rect key="frame" x="86.5" y="212" width="241" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 km." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hA0-xT-Hzf">
+                                        <rect key="frame" x="0.0" y="0.0" width="112.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 min." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-1i-SaK">
+                                        <rect key="frame" x="128.5" y="0.0" width="112.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iB2-cM-xtV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -491,8 +500,10 @@
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="bottom" secondItem="0Ak-lM-98v" secondAttribute="bottom" constant="50" id="Odj-CY-cSt"/>
                             <constraint firstItem="T6i-yl-Ksc" firstAttribute="top" secondItem="iB2-cM-xtV" secondAttribute="top" constant="100" id="YtP-Nh-t3i"/>
                             <constraint firstItem="5yX-LF-fFa" firstAttribute="centerX" secondItem="830-92-Uzx" secondAttribute="centerX" id="c7i-SU-FMU"/>
+                            <constraint firstItem="9vq-rK-5kt" firstAttribute="centerX" secondItem="830-92-Uzx" secondAttribute="centerX" id="cQG-6c-gpP"/>
                             <constraint firstItem="5yX-LF-fFa" firstAttribute="centerY" secondItem="830-92-Uzx" secondAttribute="centerY" constant="-30" id="cc4-iV-wZE"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="bottom" secondItem="xlC-JU-y7V" secondAttribute="bottom" constant="120" id="hhy-ZO-zv7"/>
+                            <constraint firstItem="9vq-rK-5kt" firstAttribute="top" secondItem="T6i-yl-Ksc" secondAttribute="bottom" constant="32" id="hnk-6A-gp1"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="bottom" secondItem="Dga-Gt-tkC" secondAttribute="bottom" constant="45" id="iJn-yT-wrb"/>
                             <constraint firstItem="jiY-Td-5gs" firstAttribute="trailing" secondItem="iB2-cM-xtV" secondAttribute="trailing" id="imb-8Z-f80"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="trailing" secondItem="T6i-yl-Ksc" secondAttribute="trailing" constant="20" id="iq6-wA-7NL"/>
@@ -502,10 +513,12 @@
                     </view>
                     <connections>
                         <outlet property="currentAddressLabel" destination="T6i-yl-Ksc" id="ny3-pN-dL1"/>
+                        <outlet property="distanceToPlace" destination="hA0-xT-Hzf" id="P09-D6-fzF"/>
                         <outlet property="doneButton" destination="0Ak-lM-98v" id="iuB-4G-ZTB"/>
                         <outlet property="goButton" destination="Dga-Gt-tkC" id="SRd-CY-3Po"/>
                         <outlet property="mapMarker" destination="5yX-LF-fFa" id="u6P-xN-bga"/>
                         <outlet property="mapView" destination="jiY-Td-5gs" id="EdP-xI-uYG"/>
+                        <outlet property="timeToPlace" destination="aHK-1i-SaK" id="bCv-Db-lxq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pii-jN-KNb" userLabel="First Responder" sceneMemberID="firstResponder"/>

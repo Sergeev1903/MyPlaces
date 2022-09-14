@@ -33,6 +33,8 @@ class MapViewController: UIViewController {
     @IBOutlet var doneButton: UIButton!
     @IBOutlet var goButton: UIButton!
     
+    @IBOutlet var distanceToPlace: UILabel!
+    @IBOutlet var timeToPlace: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +65,17 @@ class MapViewController: UIViewController {
     
     @IBAction func goButtonPressed() {
         getDirection()
+        distanceToPlace.isHidden = false
+        timeToPlace.isHidden = false
     }
     
     
     private func setUpMapView() {
         
         goButton.isHidden = true
+        distanceToPlace.isHidden = true
+        timeToPlace.isHidden = true
+        
         
         if incomeSegueIdentifier == "showPlace" {
             setUpPlacemark()
@@ -76,6 +83,11 @@ class MapViewController: UIViewController {
             currentAddressLabel.isHidden = true
             doneButton.isHidden = true
             goButton.isHidden = false
+        }
+        
+        if incomeSegueIdentifier == "getAddress" {
+            distanceToPlace.isHidden = true
+            timeToPlace.isHidden = true
         }
     }
     
@@ -216,6 +228,9 @@ class MapViewController: UIViewController {
                 
                 print("Distance to \(distance) km.")
                 print("Travel time will be \(timeInterval / 60) minute.")
+                
+                self.distanceToPlace.text = ("\(distance) km.")
+                self.timeToPlace.text = ("\(Int(timeInterval / 60)) min.")
             }
             
         }
