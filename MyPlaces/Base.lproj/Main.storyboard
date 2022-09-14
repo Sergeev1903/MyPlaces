@@ -267,16 +267,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FRb-qI-YcE">
-                                                    <rect key="frame" x="16" y="8" width="348" height="63"/>
+                                                    <rect key="frame" x="16" y="8" width="340" height="63"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMR-Xy-uHW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="348" height="28.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="28.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Place location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ck-sG-1zk">
-                                                            <rect key="frame" x="0.0" y="36.5" width="348" height="26.5"/>
+                                                            <rect key="frame" x="0.0" y="36.5" width="340" height="26.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                             <connections>
@@ -286,10 +286,10 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JT4-RZ-aiy">
-                                                    <rect key="frame" x="372" y="26.5" width="22" height="22"/>
+                                                    <rect key="frame" x="364" y="22.5" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="D7S-1J-cQy"/>
-                                                        <constraint firstAttribute="width" constant="22" id="pmC-lE-eX2"/>
+                                                        <constraint firstAttribute="width" constant="30" id="UXo-O6-iHs"/>
+                                                        <constraint firstAttribute="height" constant="30" id="iNZ-M3-qcX"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="location.circle" catalog="system"/>
