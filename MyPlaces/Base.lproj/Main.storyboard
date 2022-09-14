@@ -351,7 +351,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="251.99999999999997" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tRh-Ty-BZt" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
-                                                    <rect key="frame" x="81" y="48" width="252" height="44"/>
+                                                    <rect key="frame" x="116" y="55" width="182" height="30"/>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -417,40 +417,40 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_marker" translatesAutoresizingMaskIntoConstraints="NO" id="5yX-LF-fFa">
-                                <rect key="frame" x="187" y="408" width="40" height="40"/>
+                                <rect key="frame" x="177" y="388" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="BHu-oe-hdM"/>
-                                    <constraint firstAttribute="height" constant="40" id="guL-5d-cN9"/>
+                                    <constraint firstAttribute="width" constant="60" id="BHu-oe-hdM"/>
+                                    <constraint firstAttribute="height" constant="60" id="guL-5d-cN9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current adress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T6i-yl-Ksc">
                                 <rect key="frame" x="20" y="144" width="374" height="36"/>
-                                <color key="backgroundColor" white="1" alpha="0.30497206125827814" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlC-JU-y7V">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlC-JU-y7V">
                                 <rect key="frame" x="334" y="702" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="bCY-Ad-8hq"/>
                                     <constraint firstAttribute="height" constant="40" id="ywk-hs-dbC"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="Location"/>
                                 <connections>
                                     <action selector="centerViewUserLocation" destination="WN9-SV-9wF" eventType="touchUpInside" id="TPr-er-ePe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ak-lM-98v">
-                                <rect key="frame" x="147" y="762" width="120" height="60"/>
+                                <rect key="frame" x="147" y="772" width="120" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="0.29982408940397354" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="CvW-pB-ipu"/>
-                                    <constraint firstAttribute="height" constant="60" id="dWE-am-rYr"/>
+                                    <constraint firstAttribute="height" constant="40" id="dWE-am-rYr"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Done">
                                             <attributes>
@@ -464,6 +464,19 @@
                                     <action selector="doneButtonPressed" destination="WN9-SV-9wF" eventType="touchUpInside" id="SV4-8C-CqA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-Gt-tkC">
+                                <rect key="frame" x="182" y="767" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="L7l-ch-j92"/>
+                                    <constraint firstAttribute="height" constant="50" id="ld3-vi-ljR"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="GetDirection"/>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="WN9-SV-9wF" eventType="touchUpInside" id="RxV-MX-dPU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iB2-cM-xtV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -475,19 +488,22 @@
                             <constraint firstAttribute="bottom" secondItem="jiY-Td-5gs" secondAttribute="bottom" id="HK8-kV-isi"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="trailing" secondItem="FB4-Xs-RxL" secondAttribute="trailing" constant="40" id="JFa-BG-PE0"/>
                             <constraint firstItem="FB4-Xs-RxL" firstAttribute="top" secondItem="iB2-cM-xtV" secondAttribute="top" constant="40" id="LhL-Ge-GVA"/>
-                            <constraint firstItem="iB2-cM-xtV" firstAttribute="bottom" secondItem="0Ak-lM-98v" secondAttribute="bottom" constant="40" id="Odj-CY-cSt"/>
+                            <constraint firstItem="iB2-cM-xtV" firstAttribute="bottom" secondItem="0Ak-lM-98v" secondAttribute="bottom" constant="50" id="Odj-CY-cSt"/>
                             <constraint firstItem="T6i-yl-Ksc" firstAttribute="top" secondItem="iB2-cM-xtV" secondAttribute="top" constant="100" id="YtP-Nh-t3i"/>
                             <constraint firstItem="5yX-LF-fFa" firstAttribute="centerX" secondItem="830-92-Uzx" secondAttribute="centerX" id="c7i-SU-FMU"/>
-                            <constraint firstItem="5yX-LF-fFa" firstAttribute="centerY" secondItem="830-92-Uzx" secondAttribute="centerY" constant="-20" id="cc4-iV-wZE"/>
+                            <constraint firstItem="5yX-LF-fFa" firstAttribute="centerY" secondItem="830-92-Uzx" secondAttribute="centerY" constant="-30" id="cc4-iV-wZE"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="bottom" secondItem="xlC-JU-y7V" secondAttribute="bottom" constant="120" id="hhy-ZO-zv7"/>
+                            <constraint firstItem="iB2-cM-xtV" firstAttribute="bottom" secondItem="Dga-Gt-tkC" secondAttribute="bottom" constant="45" id="iJn-yT-wrb"/>
                             <constraint firstItem="jiY-Td-5gs" firstAttribute="trailing" secondItem="iB2-cM-xtV" secondAttribute="trailing" id="imb-8Z-f80"/>
                             <constraint firstItem="iB2-cM-xtV" firstAttribute="trailing" secondItem="T6i-yl-Ksc" secondAttribute="trailing" constant="20" id="iq6-wA-7NL"/>
                             <constraint firstItem="0Ak-lM-98v" firstAttribute="centerX" secondItem="830-92-Uzx" secondAttribute="centerX" id="sbC-LL-pyb"/>
+                            <constraint firstItem="Dga-Gt-tkC" firstAttribute="centerX" secondItem="830-92-Uzx" secondAttribute="centerX" id="zbr-do-LKY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="currentAddressLabel" destination="T6i-yl-Ksc" id="ny3-pN-dL1"/>
                         <outlet property="doneButton" destination="0Ak-lM-98v" id="iuB-4G-ZTB"/>
+                        <outlet property="goButton" destination="Dga-Gt-tkC" id="SRd-CY-3Po"/>
                         <outlet property="mapMarker" destination="5yX-LF-fFa" id="u6P-xN-bga"/>
                         <outlet property="mapView" destination="jiY-Td-5gs" id="EdP-xI-uYG"/>
                     </connections>
@@ -507,12 +523,13 @@
         <segue reference="Cti-ZW-4Qe"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="GetDirection" width="50" height="50"/>
         <image name="Location" width="128" height="128"/>
         <image name="arrow.down" catalog="system" width="120" height="128"/>
         <image name="cancel" width="128" height="128"/>
         <image name="location.circle" catalog="system" width="128" height="121"/>
         <image name="map" width="50" height="50"/>
-        <image name="map_marker" width="676.5" height="934"/>
+        <image name="map_marker" width="512" height="512"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="97"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
