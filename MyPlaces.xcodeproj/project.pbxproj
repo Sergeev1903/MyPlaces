@@ -13,6 +13,7 @@
 		1D022F5A28B8BB0000688E53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D022F5928B8BB0000688E53 /* Assets.xcassets */; };
 		1D022F5D28B8BB0000688E53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D022F5B28B8BB0000688E53 /* LaunchScreen.storyboard */; };
 		1D022F6528B8C46B00688E53 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D022F6428B8C46B00688E53 /* PlacesTableViewController.swift */; };
+		1D2DD1DA28D30100001D7052 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DD1D928D30100001D7052 /* MapManager.swift */; };
 		1D4A0B5828BA2BD8005CC892 /* PlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0B5728BA2BD8005CC892 /* PlacesTableViewCell.swift */; };
 		1D4A0B5A28BA3D66005CC892 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0B5928BA3D66005CC892 /* PlaceModel.swift */; };
 		1D9740D328BB4E7A0043FFAD /* NewPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9740D228BB4E7A0043FFAD /* NewPlaceTableViewController.swift */; };
@@ -33,6 +34,7 @@
 		1D022F5C28B8BB0000688E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D022F5E28B8BB0000688E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D022F6428B8C46B00688E53 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
+		1D2DD1D928D30100001D7052 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		1D4A0B5728BA2BD8005CC892 /* PlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewCell.swift; sourceTree = "<group>"; };
 		1D4A0B5928BA3D66005CC892 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		1D9740D228BB4E7A0043FFAD /* NewPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceTableViewController.swift; sourceTree = "<group>"; };
@@ -78,21 +80,70 @@
 		1D022F4F28B8BAFE00688E53 /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				1D4A0B5928BA3D66005CC892 /* PlaceModel.swift */,
-				1DAC407128C2917E00CA80DE /* StorageManager.swift */,
-				1DA9348628C76A4900009072 /* RatingControl.swift */,
-				1D022F6428B8C46B00688E53 /* PlacesTableViewController.swift */,
-				1D4A0B5728BA2BD8005CC892 /* PlacesTableViewCell.swift */,
-				1D9740D228BB4E7A0043FFAD /* NewPlaceTableViewController.swift */,
-				1DF8CB6028CDE4210095D510 /* MapViewController.swift */,
-				1D022F5628B8BAFE00688E53 /* Main.storyboard */,
-				1D022F5B28B8BB0000688E53 /* LaunchScreen.storyboard */,
-				1D022F5228B8BAFE00688E53 /* SceneDelegate.swift */,
-				1D022F5028B8BAFE00688E53 /* AppDelegate.swift */,
-				1D022F5928B8BB0000688E53 /* Assets.xcassets */,
+				1D2DD1DC28D3398A001D7052 /* Models */,
+				1D2DD1DF28D33A79001D7052 /* Views */,
+				1D2DD1DB28D3393F001D7052 /* ViewControllers */,
+				1D2DD1DD28D339BF001D7052 /* Helpers */,
+				1D2DD1DE28D33A1A001D7052 /* Support Files */,
+				1D2DD1E028D33ACB001D7052 /* Storyboards */,
 				1D022F5E28B8BB0000688E53 /* Info.plist */,
 			);
 			path = MyPlaces;
+			sourceTree = "<group>";
+		};
+		1D2DD1DB28D3393F001D7052 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D022F6428B8C46B00688E53 /* PlacesTableViewController.swift */,
+				1D9740D228BB4E7A0043FFAD /* NewPlaceTableViewController.swift */,
+				1DF8CB6028CDE4210095D510 /* MapViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1D2DD1DC28D3398A001D7052 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D4A0B5928BA3D66005CC892 /* PlaceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1D2DD1DD28D339BF001D7052 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1DAC407128C2917E00CA80DE /* StorageManager.swift */,
+				1D2DD1D928D30100001D7052 /* MapManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1D2DD1DE28D33A1A001D7052 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D022F5028B8BAFE00688E53 /* AppDelegate.swift */,
+				1D022F5228B8BAFE00688E53 /* SceneDelegate.swift */,
+				1D022F5928B8BB0000688E53 /* Assets.xcassets */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		1D2DD1DF28D33A79001D7052 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D4A0B5728BA2BD8005CC892 /* PlacesTableViewCell.swift */,
+				1DA9348628C76A4900009072 /* RatingControl.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1D2DD1E028D33ACB001D7052 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1D022F5628B8BAFE00688E53 /* Main.storyboard */,
+				1D022F5B28B8BB0000688E53 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		5A39BFA440C15E9BB2BC7538 /* Frameworks */ = {
@@ -234,6 +285,7 @@
 				1DAC407228C2917E00CA80DE /* StorageManager.swift in Sources */,
 				1DF8CB6128CDE4210095D510 /* MapViewController.swift in Sources */,
 				1DA9348728C76A4900009072 /* RatingControl.swift in Sources */,
+				1D2DD1DA28D30100001D7052 /* MapManager.swift in Sources */,
 				1D4A0B5A28BA3D66005CC892 /* PlaceModel.swift in Sources */,
 				1D022F6528B8C46B00688E53 /* PlacesTableViewController.swift in Sources */,
 				1D4A0B5828BA2BD8005CC892 /* PlacesTableViewCell.swift in Sources */,
@@ -387,13 +439,14 @@
 				DEVELOPMENT_TEAM = V9FFU52WUP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyPlaces/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSCameraUsageDescription = "MyPlaces photo use";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For directions to your favourite place, and get place adress.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -402,6 +455,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artem-sergeev.MyPlaces";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -419,13 +475,14 @@
 				DEVELOPMENT_TEAM = V9FFU52WUP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyPlaces/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSCameraUsageDescription = "MyPlaces photo use";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For directions to your favourite place, and get place adress.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -434,6 +491,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artem-sergeev.MyPlaces";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

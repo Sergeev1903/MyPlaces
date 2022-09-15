@@ -7,7 +7,8 @@
 
 import UIKit
 
-@IBDesignable class RatingControl: UIStackView {
+//@IBDesignable
+class RatingControl: UIStackView {
     
     //MARK: Properties
     
